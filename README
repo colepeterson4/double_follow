@@ -1,0 +1,4 @@
+This code creates four turtles. The first turtle is controlled by teleop. However, each successive turtle has its own frame which is a child of the world. For the first three
+turtles there are also "carrot" tf frames which are simply static frames set 0.5 meters behind their parent turtle frame. Each turtle frame is broadcast with a single broadcast
+file, which has multiple instances running. This broadcast file is capable detecting the name of each turtle node which is trying to run it, and changing the name of the resulting
+tf node to match. Each of the last three turtles also have their own listener nodes. Each listener file takes in the turtle's frame and its respective carrot frame and gets the transform from one to the other. It then publishes the twist message needed to go towards the carrot to the turtle it corresponds to.
